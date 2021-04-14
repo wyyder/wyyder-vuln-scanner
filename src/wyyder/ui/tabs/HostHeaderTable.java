@@ -9,16 +9,16 @@ import burp.IMessageEditorController;
 import wyyder.Wyyder;
 import wyyder.WyyderHttpMessage;
 
-public class UniqueReqResTable extends JTable implements IMessageEditorController {
+public class HostHeaderTable extends JTable implements IMessageEditorController {
 
 	private static final long serialVersionUID = 1L;
 
-	private UniqueReqResTableModel uniqueTableModel;
+	private HostHeaderTableModel uniqueTableModel;
 	private IMessageEditor requestViewer;
 	private IMessageEditor responseViewer;
 	private IHttpRequestResponse currentlyDisplayedItem;
 
-	UniqueReqResTable(UniqueReqResTableModel uniqueTableModel) {
+	HostHeaderTable(HostHeaderTableModel uniqueTableModel) {
 		super(uniqueTableModel);
 
 		this.uniqueTableModel = uniqueTableModel;

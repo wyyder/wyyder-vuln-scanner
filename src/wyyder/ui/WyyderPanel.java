@@ -16,8 +16,8 @@ public class WyyderPanel extends JPanel implements ITab {
 	private static final long serialVersionUID = 13254L;
 
 	UniqueReqResTab uniqueReqResTab;
-	HostHeaderTab hostHeaderInj;
-	SettingsTab settings;
+	HostHeaderTab hostHeaderTab;
+	SettingsTab settingsTab;
 
 	public WyyderPanel() {
 		setLayout(new BorderLayout());
@@ -28,12 +28,12 @@ public class WyyderPanel extends JPanel implements ITab {
 		JTabbedPane tabs = new JTabbedPane();
 
 		uniqueReqResTab = new UniqueReqResTab();
-		hostHeaderInj = new HostHeaderTab();
-		settings = new SettingsTab();
+		hostHeaderTab = new HostHeaderTab();
+		settingsTab = new SettingsTab();
 
 		tabs.addTab("Unique", uniqueReqResTab);
-		tabs.addTab("Host Header", hostHeaderInj);
-		tabs.addTab("Settings", settings);
+		tabs.addTab("Host Header", hostHeaderTab);
+		tabs.addTab("Settings", settingsTab);
 		return tabs;
 	}
 
@@ -49,5 +49,13 @@ public class WyyderPanel extends JPanel implements ITab {
 
 	public UniqueReqResTab getUniqueReqResTab() {
 		return uniqueReqResTab;
+	}
+
+	public HostHeaderTab getHostHeaderTab() {
+		return hostHeaderTab;
+	}
+
+	public SettingsTab getSettingsTab() {
+		return settingsTab;
 	}
 }

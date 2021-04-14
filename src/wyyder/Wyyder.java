@@ -3,6 +3,7 @@ package wyyder;
 import java.io.PrintWriter;
 
 import burp.IBurpExtenderCallbacks;
+import wyyder.ui.WyyderHostHeader;
 import wyyder.ui.WyyderPanel;
 import wyyder.ui.WyyderUniqueReqRes;
 
@@ -12,12 +13,11 @@ public class Wyyder {
 	private static PrintWriter stdout, stderr;
 	public static WyyderPanel panel;
 	public static WyyderUniqueReqRes uniqueReqResListener;
-	// Settings
-	public static boolean isRunning = false;
-	public static int toolFilter = 0;
+	public static WyyderHostHeader hostHeaderListener;
 
 	public Wyyder(IBurpExtenderCallbacks callback) {
-		this.callback = callback;
+		Wyyder.callback = callback;
+
 		stdout = new PrintWriter(callback.getStdout(), true);
 		stderr = new PrintWriter(callback.getStderr(), true);
 
@@ -26,8 +26,10 @@ public class Wyyder {
 
 		// Register http listener
 		uniqueReqResListener = new WyyderUniqueReqRes();
+		hostHeaderListener = new WyyderHostHeader();
 
 		callback.registerHttpListener(uniqueReqResListener);
+		callback.registerHttpListener(hostHeaderListener);
 
 		callback.addSuiteTab(panel);
 	}
