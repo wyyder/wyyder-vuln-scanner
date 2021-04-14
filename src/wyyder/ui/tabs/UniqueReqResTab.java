@@ -62,11 +62,11 @@ public class UniqueReqResTab extends JPanel {
 
 		JScrollPane reqPane = new JScrollPane(uniqueReqResTable.getRequestViewer().getComponent());
 		reqPane.setName("Request");
-		reqResPane.setRightComponent(reqPane);
+		reqResPane.setLeftComponent(reqPane);
 
 		JScrollPane resPane = new JScrollPane(uniqueReqResTable.getResponseViewer().getComponent());
 		resPane.setName("Response");
-		reqResPane.setLeftComponent(resPane);
+		reqResPane.setRightComponent(resPane);
 
 		mainPane.setRightComponent(reqResPane);
 
